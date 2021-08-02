@@ -1,0 +1,87 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+body {
+    background-color: #f0e3e1;
+    color: #000;
+    font-family: "Roboto", sans-serif;
+}
+
+.contenedor {
+    display: grid;
+    width: 90%;
+    max-width: 1000px;
+    margin: 20px auto;
+    grid-gap: 15px;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(4, auto);
+
+    grid-template-areas: "header       header      header"
+                         "contenido    contenido    sidebar" 
+                         "widget-1      widget-2       sidebar"
+                         "footer       footer       footer";
+}
+.contenedor > div, 
+.contenedor .header,
+.contenedor .sidebar,
+.contenedor .contenido,
+.contenedor .footer {
+    padding: 20px;
+    border-radius: 5px;
+}
+
+.contenedor .header {
+    background: #054467;
+    color: #fff;
+    grid-area: header;
+}
+.contenedor .contenido {
+    background: #e9f3f9;
+    color:#000 ;
+    grid-area: contenido;
+}
+.contenedor .sidebar {
+    background: #9cc6e5;
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100px;
+    grid-area: sidebar;
+}
+.contenedor .widget-1,
+.contenedor .widget-2  {
+    background: #1a6297;
+    color: #fff;
+    height: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.contenedor .widget-1 {
+    grid-area: widget-1;
+}
+.contenedor .widget-2{
+    grid-area: widget-2;
+}
+.contenedor .footer {
+    background: #054467;
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    grid-area: footer;
+}
+
+
+@media screen and (max-width: 750px) {
+    .contenedor {
+        grid-template-areas: 
+        "header       header      header"
+        "contenido    contenido    contenido" 
+        "sidebar      sidebar        sidebar"
+        "widget-1     widget-1      widget-2"      
+        "footer       footer       footer";
+    }
+}
